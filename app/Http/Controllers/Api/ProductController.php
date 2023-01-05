@@ -19,7 +19,8 @@ class ProductController extends Controller
     {
         // $products = Product::latest()->paginate(5);
         $products = Product::all();
-        return new ProductResource(true, 'List Data Products', $products);
+        $data = new ProductResource(true, 'List of product.', $products);
+        return response()->json($data);
     }
 
     /**
@@ -44,7 +45,8 @@ class ProductController extends Controller
             'price'   => $price,
         ]);
 
-        return new ProductResource(true, 'Product  Data was successfully added!', $product);
+        $data = new ProductResource(true, 'Created.', $product);
+        return response()->json($data, 201);
     }
 
     /**
@@ -53,11 +55,15 @@ class ProductController extends Controller
      * @param  mixed $product
      * @return void
      */
-    public function show($id)
+    public function show($id=null)
     {
         $product = Product::find($id);
-        if(! $product) return new ProductResource(false, 'Not Found', 'null');
-        return new ProductResource(true, 'Product data', $product);
+        if(! $product) {
+            $data = new ProductResource(false, 'Not Found', 'null');
+            return response()->json($data, 404);
+        }
+        $data = new ProductResource(true, 'Product.', $product);
+        return response()->json($data);
     }
 
     /**
@@ -81,7 +87,8 @@ class ProductController extends Controller
             'price'   => $request->price,
         ]);
 
-        return new ProductResource(true, 'Product data was successfully updated!', $product);
+        $data = new ProductResource(true, 'Updated.', $product);
+        return response()->json($data);
     }
 
     /**
@@ -93,7 +100,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return new ProductResource(true, 'Product data was successfully deleted!', null);
+        $data = new ProductResource(true, 'Deleted.', null);
+        return response()->json($data);
     }
 
 }
