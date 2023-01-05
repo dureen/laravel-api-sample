@@ -20,4 +20,5 @@ Please read the original Laravel 9.x [README](README-Origin.md)
 ## Happy Coding!
 
 ### Support
-Buy Me a Coffee [Click here](https://ko-fi.com/sandw)
+Buy me a coffee [Click here](https://ko-fi.com/sandw)
+
