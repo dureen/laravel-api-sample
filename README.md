@@ -17,7 +17,7 @@ This is Laravel 9.x REST API project
 
 Please read the original Laravel 9.x [README](README-Origin.md)
 
-# Buy Me a Coffee
-Click [here](https://ko-fi.com/sandw)
-
 ## Happy Coding!
+
+### Support
+Buy Me a Coffee [Click here](https://ko-fi.com/sandw)
